@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import deliveryboy from "../assets/deliberyboy.png";
+import foodTable from "../assets/foodTable.png";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -31,17 +32,19 @@ const Login = () => {
 
   return (
     <>
-      <div className="h-[90vh] bg-linear-to-r from-(--secondary) to-(--primary) grid grid-cols-2 p-10 ">
-        <div className="hidden md:block">
-          <img src={deliveryboy} alt="" className="rotate-y-180" />
+      <div className="">
+        <div className="relative w-full h-screen">
+          <img src={foodTable} alt="Food Table"className="w-full h-full object-cover "/>
         </div>
         <div className="w-md bg-(--background) rounded shadow p-10 flex flex-col justify-center">
-          <div>Welocome Back!</div>
+          
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-md p-8 rounded-xl shadow-xl w-[400px]">
+          <div className="flex justify-center text-2xl">Welocome Back!</div>
             <div className="flex flex-col gap-2">
               <label htmlFor="email">Email</label>
               <input
+              required
                 type="email"
                 id="email"
                 name="email"
@@ -53,6 +56,7 @@ const Login = () => {
             <div className="flex flex-col gap-2 mt-4">
               <label htmlFor="password">Password</label>
               <input
+              required
                 type="password"
                 id="password"
                 name="password"
