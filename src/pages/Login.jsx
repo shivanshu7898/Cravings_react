@@ -28,6 +28,16 @@ const Login = () => {
       email: loginData.email.toLowerCase(),
       password: loginData.password,
     };
+     try {
+          const res = await api.post("/auth/login", payload);
+          toast.success(res.data.message);
+          console.log(res.data.data.photo);
+        } catch (error) {
+          toast.error(
+            error.response.status + " | " + error.response?.data?.message ||
+              error.message,
+          );
+        }
   };
 
   return (
